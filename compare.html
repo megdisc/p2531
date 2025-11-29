@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>徹底比較・まとめ | JS Loop Master</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .flowchart {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+        }
+
+        .quiz-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border: 1px solid #ddd;
+        }
+
+        .quiz-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .quiz-options label {
+            display: block;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+
+        .result-message {
+            font-weight: bold;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">JS Loop Master</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Top</a></li>
+                <li><a href="fundamentals.html">基本のキ</a></li>
+                <li><a href="for-loop.html">for文</a></li>
+                <li><a href="foreach.html">forEach</a></li>
+                <li><a href="compare.html" class="active">比較・まとめ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-layout">
+        <main>
+            <h1>徹底比較・まとめ</h1>
+
+            <section class="comparison">
+                <h2>for vs forEach 比較表</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>項目</th>
+                            <th>for文 (構文)</th>
+                            <th>forEach (メソッド)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>正体</strong></td>
+                            <td>言語の基本ルール<br>(マニュアル操作)</td>
+                            <td>配列の便利ツール<br>(オートマチック)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>記述量</strong></td>
+                            <td>多い<br>(全部自分で書く)</td>
+                            <td>少ない<br>(シンプル！)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>中断 (break)</strong></td>
+                            <td><span style="color: green; font-weight: bold;">可能</span></td>
+                            <td><span style="color: red; font-weight: bold;">不可</span> (最後まで走る)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>非同期 (await)</strong></td>
+                            <td>待機できる</td>
+                            <td>待機できない</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="flowchart">
+                <h2>使い分けフローチャート</h2>
+                <div
+                    style="font-size: 1.1rem; border: 1px solid #ddd; padding: 20px; border-radius: 8px; background: #fdfdfd;">
+                    <p><strong>Q1. ループを途中で止める (break) 必要がある？</strong></p>
+                    <div style="text-align: center; font-size: 1.5rem;">⬇</div>
+
+                    <div style="display: flex; justify-content: space-around; margin-bottom: 20px;">
+                        <div style="flex: 1; text-align: center; border-right: 1px solid #eee;">
+                            <strong>YES</strong><br>
+                            <span style="font-size: 1.5rem;">👉 <code>for</code> 文</span>
+                        </div>
+                        <div style="flex: 1; text-align: center;">
+                            <strong>NO</strong><br>
+                            <div style="font-size: 1.5rem;">⬇</div>
+                            <p><strong>Q2. 非同期処理 (await) を待機する必要がある？</strong></p>
+                            <div style="display: flex; justify-content: space-around; margin-top: 10px;">
+                                <div>
+                                    <strong>YES</strong><br>
+                                    <span>👉 <code>for</code> 文</span><br>
+                                    <small>(または for...of)</small>
+                                </div>
+                                <div>
+                                    <strong>NO</strong><br>
+                                    <span>👉 <code>forEach</code></span><br>
+                                    <small>(シンプル！)</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="quiz">
+                <h2>最終確認クイズ</h2>
+                <div class="quiz-container">
+                    <div class="quiz-item" id="q1">
+                        <p><strong>Q1. 配列の要素を順番に表示したいだけの場合、可読性が高いのは？</strong></p>
+                        <div class="quiz-options">
+                            <label><input type="radio" name="q1" value="for"> for文</label>
+                            <label><input type="radio" name="q1" value="foreach"> forEach</label>
+                        </div>
+                        <div class="result-message"></div>
+                    </div>
+
+                    <div class="quiz-item" id="q2">
+                        <p><strong>Q2. 特定の条件でループを「中断 (break)」したい場合は？</strong></p>
+                        <div class="quiz-options">
+                            <label><input type="radio" name="q2" value="for"> for文</label>
+                            <label><input type="radio" name="q2" value="foreach"> forEach</label>
+                        </div>
+                        <div class="result-message"></div>
+                    </div>
+
+                    <div class="quiz-item" id="q3">
+                        <p><strong>Q3. forEachの中で `await` は機能する？</strong></p>
+                        <div class="quiz-options">
+                            <label><input type="radio" name="q3" value="yes"> 機能する</label>
+                            <label><input type="radio" name="q3" value="no"> 機能しない（待機しない）</label>
+                        </div>
+                        <div class="result-message"></div>
+                    </div>
+
+                    <button id="checkQuiz" class="btn">答え合わせ</button>
+                </div>
+            </section>
+
+            <div style="margin-top: 40px; text-align: center;">
+                <a href="index.html" class="btn btn-large">トップに戻って復習する</a>
+            </div>
+        </main>
+
+        <aside>
+            <h3>用語集</h3>
+            <dl>
+                <dt>Callback (コールバック関数)</dt>
+                <dd>他の関数に引数として渡され、後で実行される関数のこと。<code>forEach</code> の中身はこれです。</dd>
+
+                <dt>Async / Await (非同期 / 待機)</dt>
+                <dd>通信などの時間がかかる処理を扱うための機能。<code>forEach</code> はこれに対応しておらず、待たずに次へ進んでしまいます。</dd>
+
+                <dt>Index (インデックス / 添字)</dt>
+                <dd>配列の何番目かを表す数字。0から始まります。</dd>
+            </dl>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 JS Loop Master. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.getElementById('checkQuiz').addEventListener('click', () => {
+            // Answers
+            const answers = {
+                q1: 'foreach',
+                q2: 'for',
+                q3: 'no'
+            };
+
+            let correctCount = 0;
+
+            for (const [questionId, correctAnswer] of Object.entries(answers)) {
+                const selected = document.querySelector(`input[name="${questionId}"]:checked`);
+                const resultDiv = document.querySelector(`#${questionId} .result-message`);
+
+                resultDiv.style.display = 'block';
+                resultDiv.className = 'result-message'; // reset
+
+                if (selected && selected.value === correctAnswer) {
+                    resultDiv.textContent = '正解！';
+                    resultDiv.classList.add('correct');
+                    correctCount++;
+                } else {
+                    resultDiv.textContent = '不正解...';
+                    resultDiv.classList.add('incorrect');
+                }
+            }
+
+            if (correctCount === 3) {
+                alert('全問正解！おめでとうございます！🎉');
+            } else {
+                alert(`${correctCount}問正解です。もう一度復習してみましょう！`);
+            }
+        });
+    </script>
+</body>
+
+</html>

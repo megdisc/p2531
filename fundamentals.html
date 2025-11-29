@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本のキ：配列とループ | JS Loop Master</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">JS Loop Master</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Top</a></li>
+                <li><a href="fundamentals.html" class="active">基本のキ</a></li>
+                <li><a href="for-loop.html">for文</a></li>
+                <li><a href="foreach.html">forEach</a></li>
+                <li><a href="compare.html">比較・まとめ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-layout">
+        <main>
+            <h1>基本のキ：配列とループ</h1>
+            <p>プログラミングの世界へようこそ！<br>
+                ここでは、<code>for</code>文や<code>forEach</code>を学ぶ前に知っておきたい、とっても大切な「基本のキ」をお話しします。</p>
+
+            <section class="explanation">
+                <h2>1. 配列（Array）ってなに？</h2>
+                <p>配列は、たくさんのデータをひとまとめにする「整理箱」のようなものです。</p>
+                <div
+                    style="background: white; padding: 20px; border-radius: 15px; border: 2px dashed var(--accent-color); margin: 20px 0; text-align: center;">
+                    <p style="font-size: 1.2rem; font-weight: bold; color: var(--primary-color);">例：好きな動物リスト</p>
+                    <div style="font-size: 2rem; margin: 10px;">🐶 🐱 🐰</div>
+                    <p>これらを <code>['Dog', 'Cat', 'Rabbit']</code> というふうに、ひとつの箱（変数）に入れて管理します。</p>
+                </div>
+            </section>
+
+            <section class="explanation">
+                <h2>2. ループ（繰り返し）ってなに？</h2>
+                <p>配列の中身をひとつずつ取り出して、何か作業をすることを「ループ（繰り返し）」と呼びます。</p>
+                <p>例えば、「箱の中の動物すべてにエサをあげる」という作業はループ処理です。</p>
+                <ul>
+                    <li>1回目：🐶にエサをあげる</li>
+                    <li>2回目：🐱にエサをあげる</li>
+                    <li>3回目：🐰にエサをあげる</li>
+                </ul>
+                <p>これをプログラムで書く方法が、これから学ぶ <code>for</code>文 や <code>forEach</code> です。</p>
+            </section>
+
+            <section class="explanation">
+                <h2>3. 「構文」と「メソッド」の違い</h2>
+                <p>ここが一番のポイントです！<br>
+                    実は、<code>for</code>文と<code>forEach</code>は、生まれも育ちも全然違うんです。</p>
+
+                <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
+                    <div
+                        style="flex: 1; background: #fff0f0; padding: 20px; border-radius: 15px; border: 2px solid var(--primary-color);">
+                        <h3 style="color: var(--primary-color); margin-top: 0; border: none;">for文 (構文)</h3>
+                        <p><strong>「言語のルール」</strong>そのものです。</p>
+                        <p>日本語で言うなら「〜は〜です」のような文法。<br>
+                            JavaScriptという言語が最初から持っている、基本的で強力な命令です。</p>
+                        <p>🚶 <strong>イメージ：自分の足で歩く</strong><br>
+                            自由度が高いけど、全部自分でコントロールする必要があります。</p>
+                    </div>
+
+                    <div
+                        style="flex: 1; background: #fff0f0; padding: 20px; border-radius: 15px; border: 2px solid var(--primary-color);">
+                        <h3 style="color: var(--primary-color); margin-top: 0; border: none;">forEach (メソッド)</h3>
+                        <p><strong>「便利な道具」</strong>です。</p>
+                        <p>配列（Array）という特定のデータが持っている「機能」のひとつ。<br>
+                            「配列専用の便利ツール」として用意されています。</p>
+                        <p>🚌 <strong>イメージ：バスに乗る</strong><br>
+                            決まったルートを楽に移動できますが、途中で降りたりルートを変えたりは苦手です。</p>
+                    </div>
+                </div>
+            </section>
+
+            <div style="margin-top: 40px; text-align: right;">
+                <a href="for-loop.html" class="btn">次は for文 (自分の足で歩く) へ &rarr;</a>
+            </div>
+        </main>
+
+        <aside>
+            <h3>用語集</h3>
+            <dl>
+                <dt>変数 (Variable)</dt>
+                <dd>データを入れておく箱のこと。名前をつけて管理します。</dd>
+
+                <dt>要素 (Element)</dt>
+                <dd>配列の中に入っているひとつひとつのデータのこと。</dd>
+
+                <dt>インデックス (Index)</dt>
+                <dd>配列の「何番目か」を表す番号。0から始まります。</dd>
+            </dl>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 JS Loop Master. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

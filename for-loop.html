@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for文の解説 | JS Loop Master</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">JS Loop Master</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Top</a></li>
+                <li><a href="fundamentals.html">基本のキ</a></li>
+                <li><a href="for-loop.html" class="active">for文</a></li>
+                <li><a href="foreach.html">forEach</a></li>
+                <li><a href="compare.html">比較・まとめ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-layout">
+        <main>
+            <h1>for文：すべてを自分で操る「構文」</h1>
+            <p><code>for</code>文は、JavaScriptの「文法」として用意されている、最も基本的な繰り返しの命令です。<br>
+                <strong>「どこから、どこまで、どうやって進むか」</strong>をすべて自分で細かく指定します。
+            </p>
+
+            <section class="explanation">
+                <h2>1. 構文の仕組み（マニュアル操作）</h2>
+                <p><code>for</code>文は、3つのステップを自分で書くことで、ループの挙動を完全にコントロールします。</p>
+
+                <pre><code><span class="keyword">for</span> (初期化; 条件式; 更新式) {
+    <span class="comment">// 繰り返したい処理</span>
+}</code></pre>
+
+                <div
+                    style="background: white; padding: 20px; border-radius: 15px; border: 2px solid var(--primary-color); margin-bottom: 20px;">
+                    <h3 style="color: var(--primary-color); margin-top: 0; border: none; font-size: 1.1rem;">🚶
+                        自分の足で歩くイメージ</h3>
+                    <dl style="margin: 0;">
+                        <dt style="font-weight: bold; color: var(--primary-color);">① 初期化 (Start)</dt>
+                        <dd style="margin-bottom: 10px;">「よし、0地点からスタートだ！」<br><code>let i = 0;</code> (カウンター変数の作成)</dd>
+
+                        <dt style="font-weight: bold; color: var(--primary-color);">② 条件式 (Goal)</dt>
+                        <dd style="margin-bottom: 10px;">「ゴール(3地点)に着くまで歩くぞ」<br><code>i < 3;</code> (続ける条件のチェック)</dd>
+
+                        <dt style="font-weight: bold; color: var(--primary-color);">③ 更新式 (Step)</dt>
+                        <dd>「1歩ずつ進もう」<br><code>i++</code> (カウンターの更新)</dd>
+                    </dl>
+                </div>
+
+                <pre><code><span class="keyword">const</span> animals = [<span class="string">'Dog'</span>, <span class="string">'Cat'</span>, <span class="string">'Bird'</span>];
+
+<span class="keyword">for</span> (<span class="keyword">let</span> i = 0; i < animals.length; i++) {
+    console.log(animals[i]); <span class="comment">// インデックスを使って要素を取り出す</span>
+}</code></pre>
+            </section>
+
+            <section class="features">
+                <h2>2. for文にしかできないこと（メリット）</h2>
+                <p>「面倒くさい」と思うかもしれませんが、すべて自分で決められるからこそ、自由自在です。<br>
+                    特に、以下の機能は <code>forEach</code> には存在しない、<code>for</code>文だけの特権です。</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div style="background: #fff9f0; padding: 15px; border-radius: 10px; border: 1px solid #eee;">
+                        <h3 style="font-size: 1rem; margin: 0 0 10px 0; color: var(--text-color);">🛑 中断 (break)</h3>
+                        <p style="font-size: 0.9rem; margin: 0;">「目的のものが見つかった！」という時に、ループを途中で強制終了できます。</p>
+                    </div>
+
+                    <div style="background: #fff9f0; padding: 15px; border-radius: 10px; border: 1px solid #eee;">
+                        <h3 style="font-size: 1rem; margin: 0 0 10px 0; color: var(--text-color);">⏭️ スキップ (continue)
+                        </h3>
+                        <p style="font-size: 0.9rem; margin: 0;">「これは関係ないな」という時に、その回だけ飛ばして次へ進めます。</p>
+                    </div>
+
+                    <div style="background: #fff9f0; padding: 15px; border-radius: 10px; border: 1px solid #eee;">
+                        <h3 style="font-size: 1rem; margin: 0 0 10px 0; color: var(--text-color);">⏳ 待機 (await)</h3>
+                        <p style="font-size: 0.9rem; margin: 0;"><code>async/await</code>
+                            を使って、通信などの処理が終わるのを「待ってから」次へ進めます。</p>
+                    </div>
+
+                    <div style="background: #fff9f0; padding: 15px; border-radius: 10px; border: 1px solid #eee;">
+                        <h3 style="font-size: 1rem; margin: 0 0 10px 0; color: var(--text-color);">🔄 柔軟な制御</h3>
+                        <p style="font-size: 0.9rem; margin: 0;">後ろから数えたり (<code>i--</code>)、2つ飛ばしにしたり
+                            (<code>i+=2</code>)、自由自在です。</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="demo">
+                <h2>3. 動作デモ</h2>
+                <p>以下のボタンを押すと、<code>for</code>文を使って配列の中身を表示します。</p>
+                <button id="runForLoop" class="btn">実行する</button>
+
+                <div class="demo-area">
+                    <strong>実行結果:</strong>
+                    <div id="forLoopOutput" class="output-box"></div>
+                </div>
+            </section>
+
+            <div style="margin-top: 40px; text-align: right;">
+                <a href="foreach.html" class="btn">次は forEach へ &rarr;</a>
+            </div>
+        </main>
+
+        <aside>
+            <h3>重要な用語</h3>
+            <dl>
+                <dt>break (ブレイク)</dt>
+                <dd>ループ処理をその場で<strong>強制終了</strong>します。「探していたものが見つかったので、もう探さなくていい」という場合に使います。</dd>
+
+                <dt>continue (コンティニュー)</dt>
+                <dd>現在の周回（イテレーション）をスキップし、<strong>次の周回へ</strong>進みます。「このデータは対象外なので飛ばす」という場合に使います。</dd>
+            </dl>
+
+
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 JS Loop Master. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Page specific script
+        document.getElementById('runForLoop').addEventListener('click', () => {
+            const outputId = 'forLoopOutput';
+            clearOutput(outputId);
+
+            const fruits = ['Apple', 'Banana', 'Cherry'];
+            logOutput(outputId, '--- ループ開始 ---');
+
+            for (let i = 0; i < fruits.length; i++) {
+                logOutput(outputId, `${i}: ${fruits[i]}`);
+            }
+
+            logOutput(outputId, '--- ループ終了 ---');
+        });
+    </script>
+</body>
+
+</html>

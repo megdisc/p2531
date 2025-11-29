@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forEachの解説 | JS Loop Master</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">JS Loop Master</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Top</a></li>
+                <li><a href="fundamentals.html">基本のキ</a></li>
+                <li><a href="for-loop.html">for文</a></li>
+                <li><a href="foreach.html" class="active">forEach</a></li>
+                <li><a href="compare.html">比較・まとめ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="page-layout">
+        <main>
+            <h1>forEach：配列専用の「便利な道具」</h1>
+            <p><code>forEach</code> は、JavaScriptの文法ではなく、<strong>「配列（Array）が持っている機能（メソッド）」</strong>です。<br>
+                「配列の中身を全部処理したい！」という、よくある作業を簡単にするために作られました。</p>
+
+            <section class="explanation">
+                <h2>1. 構文の仕組み（オートマチック）</h2>
+                <p><code>for</code>文のように、スタート地点やゴール地点を指定する必要はありません。<br>
+                    「これやって！」という関数（<strong>コールバック関数</strong>）を渡すだけで、あとは全自動です。</p>
+
+                <pre><code>配列.<span class="function">forEach</span>( (中身, インデックス) => {
+    <span class="comment">// やりたい処理</span>
+});</code></pre>
+
+                <div
+                    style="background: white; padding: 20px; border-radius: 15px; border: 2px solid var(--primary-color); margin-bottom: 20px;">
+                    <h3 style="color: var(--primary-color); margin-top: 0; border: none; font-size: 1.1rem;">🚌
+                        バスに乗るイメージ</h3>
+                    <p>バス（forEach）に乗れば、運転手さんが決まったルート（配列の最初から最後まで）を自動で走ってくれます。<br>
+                        あなたは「各バス停（要素）で何をするか」だけを考えればOKです。</p>
+                </div>
+
+                <pre><code><span class="keyword">const</span> animals = [<span class="string">'Dog'</span>, <span class="string">'Cat'</span>, <span class="string">'Bird'</span>];
+
+animals.<span class="function">forEach</span>( (animal, index) => {
+    console.log(index + <span class="string">":"</span> + animal); 
+    <span class="comment">// 1つ目の引数(animal)に中身、2つ目(index)に番号が入ってきます</span>
+});</code></pre>
+            </section>
+
+            <section class="merits">
+                <h2>2. forEachのメリット</h2>
+                <ul>
+                    <li><strong>読みやすい</strong>: 「配列をループしているんだな」と一目でわかります。</li>
+                    <li><strong>ミスが減る</strong>: <code>i++</code> などを書かなくていいので、書き間違いが起きません。</li>
+                    <li><strong>空っぽは無視</strong>: データが入っていない場所（疎な配列）は自動でスキップしてくれます。</li>
+                </ul>
+            </section>
+
+            <section class="caveats">
+                <h2>3. 注意点（バスのルール）</h2>
+                <p>便利な反面、オートマチックならではの制約もあります。</p>
+                <div
+                    style="background: #fff0f0; padding: 20px; border-radius: 15px; border: 2px solid var(--secondary-color);">
+                    <ul>
+                        <li style="margin-bottom: 10px;">
+                            <strong>🛑 途中下車できない (No break)</strong><br>
+                            <code>break</code> や <code>continue</code> は使えません。必ず最後まで走り切ります。
+                        </li>
+                        <li>
+                            <strong>⏳ 待ってくれない (No await)</strong><br>
+                            <code>async/await</code> を使っても、バスは次のバス停へ進んでしまいます。<br>
+                            「処理が終わるのを待つ」ということができません（投げっぱなしになります）。
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="demo">
+                <h2>4. 動作デモ</h2>
+                <p>以下のボタンを押すと、<code>forEach</code> を使って配列の中身を表示します。</p>
+                <button id="runForEach" class="btn">実行する</button>
+                <div class="demo-area">
+                    <strong>実行結果:</strong>
+                    <div id="forEachOutput" class="output-box"></div>
+                </div>
+            </section>
+
+            <div style="margin-top: 40px; text-align: right;">
+                <a href="compare.html" class="btn">次は 比較・まとめ へ &rarr;</a>
+            </div>
+        </main>
+
+        <aside>
+            <h3>用語集</h3>
+            <dl>
+                <dt>メソッド (Method)</dt>
+                <dd>データ（オブジェクト）が持っている「機能」や「道具」のこと。</dd>
+
+                <dt>コールバック関数</dt>
+                <dd>「あとで実行してね」と渡す関数のこと。forEachに「各要素でやってほしいこと」として渡します。</dd>
+            </dl>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 JS Loop Master. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Page specific script
+        document.getElementById('runForEach').addEventListener('click', () => {
+            const outputId = 'forEachOutput';
+            clearOutput(outputId);
+
+            const animals = ['Dog', 'Cat', 'Bird'];
+            logOutput(outputId, '--- forEach開始 ---');
+
+            animals.forEach((animal, index) => {
+                logOutput(outputId, `${index}: ${animal}`);
+            });
+
+            logOutput(outputId, '--- forEach終了 ---');
+        });
+    </script>
+</body>
+
+</html>
