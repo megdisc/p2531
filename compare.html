@@ -218,11 +218,11 @@
                         <div class="quiz-options">
                             <div class="option-group">
                                 <input type="radio" name="q2" id="q2-for" value="for">
-                                <label for="q2-for" class="option-card">for文 (break可)</label>
+                                <label for="q2-for" class="option-card">for文</label>
                             </div>
                             <div class="option-group">
                                 <input type="radio" name="q2" id="q2-foreach" value="foreach">
-                                <label for="q2-foreach" class="option-card">forEach (break不可)</label>
+                                <label for="q2-foreach" class="option-card">forEach</label>
                             </div>
                         </div>
                         <div class="result-message"></div>
@@ -269,15 +269,23 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script>
         const modal = document.getElementById('quizModal');
         const modalTitle = document.getElementById('modalTitle');
         const modalMessage = document.getElementById('modalMessage');
         const closeModal = document.getElementById('closeModal');
 
+        let confettiInterval; // To control the loop
+
         // Close modal function
         const hideModal = () => {
             modal.classList.remove('active');
+            if (confettiInterval) {
+                clearInterval(confettiInterval);
+                confettiInterval = null;
+                confetti.reset(); // Stop any active confetti
+            }
         };
 
         closeModal.addEventListener('click', hideModal);
@@ -316,6 +324,55 @@
             if (correctCount === 3) {
                 modalTitle.textContent = '🎉 全問正解！';
                 modalMessage.textContent = '素晴らしい！完璧に理解していますね！';
+
+                // Endless Gorgeous Confetti
+                const duration = 15 * 1000; // Keep running for a long time if not closed, but interval controls it
+                const animationEnd = Date.now() + duration;
+                const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 2000 };
+
+                const random = (min, max) => Math.random() * (max - min) + min;
+
+                // Clear any existing interval just in case
+                if (confettiInterval) clearInterval(confettiInterval);
+
+                confettiInterval = setInterval(function () {
+                    // Randomly fire different effects
+                    const particleCount = 50;
+
+                    // 1. Random bursts from random locations (Fireworks style)
+                    confetti(Object.assign({}, defaults, {
+                        particleCount: 30,
+                        origin: { x: random(0.1, 0.9), y: Math.random() - 0.2 },
+                        colors: [
+                            '#FF90BC', // Pink (Theme)
+                            '#8ACDD7', // Mint (Theme)
+                            '#FDF7C3', // Yellow (Theme)
+                            '#E2C6FF', // Purple (Theme)
+                            '#FFC8A2', // Pastel Orange
+                            '#B9E4C9', // Pastel Green
+                            '#A0E7E5', // Pastel Blue
+                            '#FFD700'  // Gold (Accent)
+                        ]
+                    }));
+
+                    // 2. Side Cannons (Streamer style)
+                    confetti({
+                        particleCount: 10,
+                        angle: 60,
+                        spread: 55,
+                        origin: { x: 0 },
+                        colors: ['#FF90BC', '#8ACDD7', '#FFC8A2']
+                    });
+                    confetti({
+                        particleCount: 10,
+                        angle: 120,
+                        spread: 55,
+                        origin: { x: 1 },
+                        colors: ['#FDF7C3', '#E2C6FF', '#B9E4C9']
+                    });
+
+                }, 800); // Fire every 800ms for a continuous stream
+
             } else {
                 modalTitle.textContent = '惜しい！';
                 modalMessage.textContent = `${correctCount}問正解です。\nもう一度復習してみましょう！`;
