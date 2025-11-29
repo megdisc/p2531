@@ -50,11 +50,11 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    /* Cute Polka Dot Pattern */
-    background-image: radial-gradient(var(--theme-color) 15%, transparent 16%),
-        radial-gradient(var(--color-foreach) 15%, transparent 16%);
-    background-size: 40px 40px;
-    background-position: 0 0, 20px 20px;
+    /* Pin Dot Pattern (Moved from main) */
+    background-image: radial-gradient(var(--theme-color) 2px, transparent 2.5px),
+        radial-gradient(var(--color-foreach) 2px, transparent 2.5px);
+    background-size: 30px 30px;
+    background-position: 0 0, 15px 15px;
     background-attachment: fixed;
     /* Overlay to soften pattern */
     position: relative;
@@ -63,17 +63,7 @@ body {
     letter-spacing: 0.05em;
 }
 
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 249, 240, 0.92);
-    /* High opacity cream overlay */
-    z-index: -1;
-}
+/* Overlay removed to show pin-dot pattern */
 
 /* Header & Nav */
 header {
@@ -144,7 +134,8 @@ nav {
 
 main {
     width: 100%;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.9);
+    /* Slightly more opaque white */
     padding: 40px;
     border-radius: 30px;
     box-shadow: var(--box-shadow);
