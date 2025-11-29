@@ -44,6 +44,40 @@
                         バスに乗るイメージ</h3>
                     <p>バス（forEach）に乗れば、運転手さんが決まったルート（配列の最初から最後まで）を自動で走ってくれます。<br>
                         あなたは「各バス停（要素）で何をするか」だけを考えればOKです。</p>
+
+                    <dl style="margin: 0;">
+                        <dt style="font-weight: bold; color: var(--primary-color); margin-top: 15px;">① コールバック関数
+                            (Callback)</dt>
+                        <dd style="margin: 5px 0 10px 15px; border-left: 3px solid #eee; padding-left: 10px;">
+                            <strong>「バス停に着いたらやることリスト」</strong><br>
+                            <code>forEach</code> に渡す関数のことです。「各要素に対して、この処理を実行してね」とお願いします。
+                        </dd>
+
+                        <dt style="font-weight: bold; color: var(--primary-color); margin-top: 15px;">② 引数 (Arguments)
+                        </dt>
+                        <dd style="margin: 5px 0 10px 15px; border-left: 3px solid #eee; padding-left: 10px;">
+                            <strong>「運転手さんから渡される情報」</strong><br>
+                            関数の中に自動的に入ってくるデータです。<br>
+                            1つ目に「要素の中身」、2つ目に「インデックス（番号）」が渡されます。
+                        </dd>
+                    </dl>
+                </div>
+
+                <div style="background: #f9f9f9; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+                    <h4 style="margin: 0 0 10px 0; color: var(--text-color);">覚えておきたい言葉</h4>
+                    <dl style="margin: 0;">
+                        <dt style="font-weight: bold; color: var(--secondary-color);">コールバック関数 (Callback Function)</dt>
+                        <dd style="margin: 0 0 10px 0;">「後で呼び出してもらう」ための関数のこと。<code>forEach</code>
+                            が裏側で「はい、次の要素！」と順番に呼び出してくれます。</dd>
+
+                        <dt style="font-weight: bold; color: var(--secondary-color);">引数 (Argument)</dt>
+                        <dd style="margin: 0 0 10px 0;">関数に渡すデータのこと。<code>(animal) => ...</code> の <code>animal</code>
+                            の部分です。好きな名前を付けられます。</dd>
+
+                        <dt style="font-weight: bold; color: var(--secondary-color);">アロー関数 (Arrow Function)</dt>
+                        <dd style="margin: 0;"><code>() => {}</code> という矢印のような書き方のこと。短くて書きやすいので、<code>forEach</code>
+                            と一緒によく使われます。</dd>
+                    </dl>
                 </div>
 
                 <pre><code><span class="keyword">const</span> animals = [<span class="string">'Dog'</span>, <span class="string">'Cat'</span>, <span class="string">'Bird'</span>];
@@ -97,16 +131,7 @@ animals.<span class="function">forEach</span>( (animal, index) => {
             </div>
         </main>
 
-        <aside>
-            <h3>用語集</h3>
-            <dl>
-                <dt>メソッド (Method)</dt>
-                <dd>データ（オブジェクト）が持っている「機能」や「道具」のこと。</dd>
 
-                <dt>コールバック関数</dt>
-                <dd>「あとで実行してね」と渡す関数のこと。forEachに「各要素でやってほしいこと」として渡します。</dd>
-            </dl>
-        </aside>
     </div>
 
     <footer>

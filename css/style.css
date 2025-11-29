@@ -89,57 +89,15 @@ nav {
 
 /* Main Content & Layout */
 .page-layout {
-    display: flex;
     width: 100%;
-    max-width: 1200px;
+    max-width: 900px;
+    /* Limit width for readability */
     margin: 40px auto;
     padding: 0 20px;
-    gap: 40px;
-    align-items: flex-start;
 }
 
 main {
-    flex: 7;
-    min-width: 0;
-}
-
-aside {
-    flex: 3;
-    background: white;
-    padding: 25px;
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    border: 2px solid var(--accent-color);
-    position: sticky;
-    top: 90px;
-}
-
-aside h3 {
-    margin-top: 0;
-    font-size: 1.2rem;
-    border-bottom: 3px dotted var(--primary-color);
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-    color: var(--primary-color);
-}
-
-aside dl dt {
-    font-weight: bold;
-    color: var(--secondary-color);
-    margin-top: 15px;
-    background: #fff0f0;
-    display: inline-block;
-    padding: 2px 8px;
-    border-radius: 10px;
-}
-
-aside dl dd {
-    margin-left: 0;
-    margin-bottom: 10px;
-    margin-top: 5px;
-    font-size: 0.95rem;
-    color: #666;
-    line-height: 1.6;
+    width: 100%;
 }
 
 /* Typography */
@@ -148,17 +106,20 @@ h1 {
     margin-bottom: 25px;
     color: var(--primary-color);
     text-shadow: 2px 2px 0px #fff;
+    text-align: center;
+    /* Center title in single column */
 }
 
 h2 {
     font-size: 1.8rem;
-    margin-top: 40px;
-    margin-bottom: 20px;
+    margin-top: 50px;
+    margin-bottom: 25px;
     color: var(--text-color);
-    border-left: 6px solid var(--accent-color);
-    padding-left: 15px;
-    background: linear-gradient(to right, rgba(181, 234, 215, 0.2), transparent);
-    border-radius: 0 10px 10px 0;
+    border-bottom: 3px solid var(--accent-color);
+    /* Change to bottom border for single column look */
+    padding-bottom: 10px;
+    display: inline-block;
+    /* Only underline text */
 }
 
 p {
@@ -343,25 +304,12 @@ footer a {
     }
 
     .page-layout {
-        flex-direction: column;
         margin: 20px auto;
-        gap: 30px;
-    }
-
-    main,
-    aside {
-        width: 100%;
-        flex: none;
-    }
-
-    aside {
-        position: static;
-        margin-top: 20px;
+        padding: 0 15px;
     }
 
     h1 {
         font-size: 1.8rem;
-        text-align: center;
     }
 
     h2 {

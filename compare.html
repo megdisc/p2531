@@ -99,66 +99,112 @@
             <h1>徹底比較・まとめ</h1>
 
             <section class="comparison">
-                <h2>for vs forEach 比較表</h2>
+                <h2>1. for vs forEach 比較表</h2>
+                <p>これまで学んだことを表にまとめました。<br>
+                    「どっちだっけ？」と迷ったらここを見返してください。</p>
+
                 <table>
                     <thead>
                         <tr>
-                            <th>項目</th>
-                            <th>for文 (構文)</th>
-                            <th>forEach (メソッド)</th>
+                            <th style="width: 20%;">項目</th>
+                            <th style="width: 40%;">for文 (構文)</th>
+                            <th style="width: 40%;">forEach (メソッド)</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td><strong>正体</strong></td>
-                            <td>言語の基本ルール<br>(マニュアル操作)</td>
-                            <td>配列の便利ツール<br>(オートマチック)</td>
+                            <td>
+                                <strong>言語の基本ルール</strong><br>
+                                <small style="color: #666;">(マニュアル操作)</small><br>
+                                文法として最初からある機能。
+                            </td>
+                            <td>
+                                <strong>配列の便利ツール</strong><br>
+                                <small style="color: #666;">(オートマチック)</small><br>
+                                配列オブジェクトが持っている機能。
+                            </td>
                         </tr>
                         <tr>
                             <td><strong>記述量</strong></td>
-                            <td>多い<br>(全部自分で書く)</td>
-                            <td>少ない<br>(シンプル！)</td>
+                            <td>
+                                <strong>多い</strong><br>
+                                初期化・条件・更新を全部自分で書くため、長くなりがち。
+                            </td>
+                            <td>
+                                <strong>少ない</strong><br>
+                                「やりたいこと」だけを書けばいいので、スッキリ読める。
+                            </td>
                         </tr>
                         <tr>
-                            <td><strong>中断 (break)</strong></td>
-                            <td><span style="color: green; font-weight: bold;">可能</span></td>
-                            <td><span style="color: red; font-weight: bold;">不可</span> (最後まで走る)</td>
+                            <td><strong>中断<br>(break)</strong></td>
+                            <td>
+                                <span style="color: green; font-weight: bold;">可能</span><br>
+                                <code>break</code> でいつでもループを強制終了できる。
+                            </td>
+                            <td>
+                                <span style="color: red; font-weight: bold;">不可</span><br>
+                                途中で止まることはできません。必ず最後まで走り切ります。
+                            </td>
                         </tr>
                         <tr>
-                            <td><strong>非同期 (await)</strong></td>
-                            <td>待機できる</td>
-                            <td>待機できない</td>
+                            <td><strong>非同期<br>(await)</strong></td>
+                            <td>
+                                <strong>待機できる</strong><br>
+                                <code>await</code> を使って、1回ずつ処理の完了を待てる。
+                            </td>
+                            <td>
+                                <strong>待機できない</strong><br>
+                                待たずに次の処理へ進んでしまう（並列実行のようになる）。
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </section>
 
             <section class="flowchart">
-                <h2>使い分けフローチャート</h2>
+                <h2>2. 使い分けフローチャート</h2>
+                <p>迷ったときは、このチャートをたどってみましょう。</p>
+
                 <div
-                    style="font-size: 1.1rem; border: 1px solid #ddd; padding: 20px; border-radius: 8px; background: #fdfdfd;">
-                    <p><strong>Q1. ループを途中で止める (break) 必要がある？</strong></p>
-                    <div style="text-align: center; font-size: 1.5rem;">⬇</div>
+                    style="font-size: 1.1rem; border: 1px solid #ddd; padding: 30px; border-radius: 8px; background: #fdfdfd;">
+                    <div
+                        style="background: #e6f7ff; padding: 15px; border-radius: 10px; margin-bottom: 20px; display: inline-block;">
+                        <strong>Q1. ループを途中で止める (break) 必要がある？</strong>
+                    </div>
+
+                    <div style="text-align: center; font-size: 1.5rem; margin: 10px 0;">⬇</div>
 
                     <div style="display: flex; justify-content: space-around; margin-bottom: 20px;">
-                        <div style="flex: 1; text-align: center; border-right: 1px solid #eee;">
-                            <strong>YES</strong><br>
-                            <span style="font-size: 1.5rem;">👉 <code>for</code> 文</span>
+                        <div style="flex: 1; text-align: center; border-right: 2px dashed #eee;">
+                            <strong style="color: var(--primary-color); font-size: 1.2rem;">YES</strong><br>
+                            <p style="margin-top: 10px;">迷わずこれ！</p>
+                            <div
+                                style="background: #fff0f0; padding: 10px; border-radius: 5px; display: inline-block; border: 2px solid var(--primary-color);">
+                                <span style="font-size: 1.2rem; font-weight: bold;">👉 for 文</span>
+                            </div>
                         </div>
+
                         <div style="flex: 1; text-align: center;">
-                            <strong>NO</strong><br>
-                            <div style="font-size: 1.5rem;">⬇</div>
-                            <p><strong>Q2. 非同期処理 (await) を待機する必要がある？</strong></p>
+                            <strong style="color: var(--secondary-color); font-size: 1.2rem;">NO</strong><br>
+                            <div style="font-size: 1.5rem; margin: 10px 0;">⬇</div>
+
+                            <div
+                                style="background: #e6f7ff; padding: 15px; border-radius: 10px; margin-bottom: 20px; display: inline-block;">
+                                <strong>Q2. 非同期処理 (await) を待機する必要がある？</strong>
+                            </div>
+
                             <div style="display: flex; justify-content: space-around; margin-top: 10px;">
-                                <div>
-                                    <strong>YES</strong><br>
-                                    <span>👉 <code>for</code> 文</span><br>
+                                <div style="flex: 1;">
+                                    <strong style="color: var(--primary-color);">YES</strong><br>
+                                    <p style="font-size: 0.9rem;">待つならこっち</p>
+                                    <span style="font-weight: bold;">👉 for 文</span><br>
                                     <small>(または for...of)</small>
                                 </div>
-                                <div>
-                                    <strong>NO</strong><br>
-                                    <span>👉 <code>forEach</code></span><br>
-                                    <small>(シンプル！)</small>
+                                <div style="flex: 1;">
+                                    <strong style="color: var(--secondary-color);">NO</strong><br>
+                                    <p style="font-size: 0.9rem;">シンプル一番！</p>
+                                    <span style="font-weight: bold; font-size: 1.2rem;">👉 forEach</span>
                                 </div>
                             </div>
                         </div>
@@ -167,10 +213,11 @@
             </section>
 
             <section class="quiz">
-                <h2>最終確認クイズ</h2>
+                <h2>3. 最終確認クイズ</h2>
+                <p>最後に、理解度をチェックしてみましょう！</p>
                 <div class="quiz-container">
                     <div class="quiz-item" id="q1">
-                        <p><strong>Q1. 配列の要素を順番に表示したいだけの場合、可読性が高いのは？</strong></p>
+                        <p><strong>Q1. 配列の要素を順番に表示したいだけの場合、可読性が高い（読みやすい）のは？</strong></p>
                         <div class="quiz-options">
                             <label><input type="radio" name="q1" value="for"> for文</label>
                             <label><input type="radio" name="q1" value="foreach"> forEach</label>
@@ -179,19 +226,19 @@
                     </div>
 
                     <div class="quiz-item" id="q2">
-                        <p><strong>Q2. 特定の条件でループを「中断 (break)」したい場合は？</strong></p>
+                        <p><strong>Q2. 「目的のデータが見つかったらループを止めたい」場合、使えるのは？</strong></p>
                         <div class="quiz-options">
-                            <label><input type="radio" name="q2" value="for"> for文</label>
-                            <label><input type="radio" name="q2" value="foreach"> forEach</label>
+                            <label><input type="radio" name="q2" value="for"> for文 (breakが使える)</label>
+                            <label><input type="radio" name="q2" value="foreach"> forEach (breakが使えない)</label>
                         </div>
                         <div class="result-message"></div>
                     </div>
 
                     <div class="quiz-item" id="q3">
-                        <p><strong>Q3. forEachの中で `await` は機能する？</strong></p>
+                        <p><strong>Q3. forEachの中で `await` (待機) は機能する？</strong></p>
                         <div class="quiz-options">
                             <label><input type="radio" name="q3" value="yes"> 機能する</label>
-                            <label><input type="radio" name="q3" value="no"> 機能しない（待機しない）</label>
+                            <label><input type="radio" name="q3" value="no"> 機能しない（待機せずに進む）</label>
                         </div>
                         <div class="result-message"></div>
                     </div>
@@ -205,19 +252,7 @@
             </div>
         </main>
 
-        <aside>
-            <h3>用語集</h3>
-            <dl>
-                <dt>Callback (コールバック関数)</dt>
-                <dd>他の関数に引数として渡され、後で実行される関数のこと。<code>forEach</code> の中身はこれです。</dd>
 
-                <dt>Async / Await (非同期 / 待機)</dt>
-                <dd>通信などの時間がかかる処理を扱うための機能。<code>forEach</code> はこれに対応しておらず、待たずに次へ進んでしまいます。</dd>
-
-                <dt>Index (インデックス / 添字)</dt>
-                <dd>配列の何番目かを表す数字。0から始まります。</dd>
-            </dl>
-        </aside>
     </div>
 
     <footer>

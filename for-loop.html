@@ -32,25 +32,58 @@
 
             <section class="explanation">
                 <h2>1. 構文の仕組み（マニュアル操作）</h2>
-                <p><code>for</code>文は、3つのステップを自分で書くことで、ループの挙動を完全にコントロールします。</p>
+                <p><code>for</code>文は、3つのステップを自分で書くことで、ループの挙動を完全にコントロールします。<br>
+                    少し記述が長いですが、一つ一つの意味を理解すれば怖くありません。</p>
 
                 <pre><code><span class="keyword">for</span> (初期化; 条件式; 更新式) {
-    <span class="comment">// 繰り返したい処理</span>
+    <span class="comment">// 繰り返したい処理 (ブロック)</span>
 }</code></pre>
 
                 <div
                     style="background: white; padding: 20px; border-radius: 15px; border: 2px solid var(--primary-color); margin-bottom: 20px;">
                     <h3 style="color: var(--primary-color); margin-top: 0; border: none; font-size: 1.1rem;">🚶
                         自分の足で歩くイメージ</h3>
+                    <p><code>for</code>文は、ゴールに向かって一歩ずつ歩くことに似ています。</p>
+
                     <dl style="margin: 0;">
-                        <dt style="font-weight: bold; color: var(--primary-color);">① 初期化 (Start)</dt>
-                        <dd style="margin-bottom: 10px;">「よし、0地点からスタートだ！」<br><code>let i = 0;</code> (カウンター変数の作成)</dd>
+                        <dt style="font-weight: bold; color: var(--primary-color); margin-top: 15px;">① 初期化
+                            (Initialization)</dt>
+                        <dd style="margin: 5px 0 10px 15px; border-left: 3px solid #eee; padding-left: 10px;">
+                            <strong>「スタート地点に立つ」</strong><br>
+                            最初に1回だけ実行されます。ここで「カウンター変数（歩数計）」を作ります。<br>
+                            例: <code>let i = 0;</code> （変数 <code>i</code> を作って 0 を入れる）
+                        </dd>
 
-                        <dt style="font-weight: bold; color: var(--primary-color);">② 条件式 (Goal)</dt>
-                        <dd style="margin-bottom: 10px;">「ゴール(3地点)に着くまで歩くぞ」<br><code>i < 3;</code> (続ける条件のチェック)</dd>
+                        <dt style="font-weight: bold; color: var(--primary-color); margin-top: 15px;">② 条件式 (Condition)
+                        </dt>
+                        <dd style="margin: 5px 0 10px 15px; border-left: 3px solid #eee; padding-left: 10px;">
+                            <strong>「まだゴールじゃないか確認する」</strong><br>
+                            毎回、進む前にチェックします。これが <code>true</code> (正解) の間だけループが続きます。<br>
+                            例: <code>i < 3;</code> （<code>i</code> が 3 より小さいなら進む）
+                        </dd>
 
-                        <dt style="font-weight: bold; color: var(--primary-color);">③ 更新式 (Step)</dt>
-                        <dd>「1歩ずつ進もう」<br><code>i++</code> (カウンターの更新)</dd>
+                        <dt style="font-weight: bold; color: var(--primary-color); margin-top: 15px;">③ 更新式 (Update)
+                        </dt>
+                        <dd style="margin: 5px 0 10px 15px; border-left: 3px solid #eee; padding-left: 10px;">
+                            <strong>「一歩進む」</strong><br>
+                            1回の処理が終わるたびに実行されます。カウンター変数を増やしたり減らしたりします。<br>
+                            例: <code>i++</code> （<code>i</code> を 1 増やす）
+                        </dd>
+                    </dl>
+                </div>
+
+                <div style="background: #f9f9f9; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+                    <h4 style="margin: 0 0 10px 0; color: var(--text-color);">覚えておきたい言葉</h4>
+                    <dl style="margin: 0;">
+                        <dt style="font-weight: bold; color: var(--secondary-color);">カウンター変数 (Counter Variable)</dt>
+                        <dd style="margin: 0 0 10px 0;">ループの回数を数えるための変数のこと。慣習として <code>i</code> (indexの頭文字) がよく使われます。
+                        </dd>
+
+                        <dt style="font-weight: bold; color: var(--secondary-color);">ブロック (Block)</dt>
+                        <dd style="margin: 0 0 10px 0;"><code>{ ... }</code> で囲まれた範囲のこと。「この中の処理を繰り返すよ」というグループ分けです。</dd>
+
+                        <dt style="font-weight: bold; color: var(--secondary-color);">インクリメント (Increment)</dt>
+                        <dd style="margin: 0;">変数の値を 1 増やすこと。<code>i++</code> は <code>i = i + 1</code> と同じ意味です。</dd>
                     </dl>
                 </div>
 
@@ -108,18 +141,7 @@
             </div>
         </main>
 
-        <aside>
-            <h3>重要な用語</h3>
-            <dl>
-                <dt>break (ブレイク)</dt>
-                <dd>ループ処理をその場で<strong>強制終了</strong>します。「探していたものが見つかったので、もう探さなくていい」という場合に使います。</dd>
 
-                <dt>continue (コンティニュー)</dt>
-                <dd>現在の周回（イテレーション）をスキップし、<strong>次の周回へ</strong>進みます。「このデータは対象外なので飛ばす」という場合に使います。</dd>
-            </dl>
-
-
-        </aside>
     </div>
 
     <footer>
