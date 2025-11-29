@@ -31,13 +31,14 @@
             background-color: #f9f9f9;
         }
 
-        .flowchart {
-            background: white;
-            padding: 20px;
+        .flowchart-container {
+            background: #fdfdfd;
+            padding: 30px;
             border-radius: 8px;
             text-align: center;
             margin: 20px 0;
             border: 1px solid #ddd;
+            font-size: 1.1rem;
         }
 
         .quiz-container {
@@ -46,36 +47,6 @@
             border-radius: 8px;
             margin-top: 30px;
             border: 1px solid #ddd;
-        }
-
-        .quiz-item {
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .quiz-options label {
-            display: block;
-            margin: 5px 0;
-            cursor: pointer;
-        }
-
-        .result-message {
-            font-weight: bold;
-            margin-top: 10px;
-            padding: 10px;
-            border-radius: 4px;
-            display: none;
-        }
-
-        .correct {
-            background-color: #d4edda;
-            color: #155724;
-        }
-
-        .incorrect {
-            background-color: #f8d7da;
-            color: #721c24;
         }
     </style>
 </head>
@@ -106,9 +77,9 @@
                 <table>
                     <thead>
                         <tr>
-                            <th style="width: 20%;">項目</th>
-                            <th style="width: 40%;">for文 (構文)</th>
-                            <th style="width: 40%;">forEach (メソッド)</th>
+                            <th class="col-item">項目</th>
+                            <th class="col-for">for文 (構文)</th>
+                            <th class="col-foreach">forEach (メソッド)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -166,45 +137,56 @@
                 <h2>2. 使い分けフローチャート</h2>
                 <p>迷ったときは、このチャートをたどってみましょう。</p>
 
-                <div
-                    style="font-size: 1.1rem; border: 1px solid #ddd; padding: 30px; border-radius: 8px; background: #fdfdfd;">
-                    <div
-                        style="background: #e6f7ff; padding: 15px; border-radius: 10px; margin-bottom: 20px; display: inline-block;">
-                        <strong>Q1. ループを途中で止める (break) 必要がある？</strong>
+                <div class="flowchart-container">
+                    <!-- Step 1 -->
+                    <div class="flowchart-step">
+                        Q1. ループを途中で止める (break) 必要がある？
                     </div>
 
-                    <div style="text-align: center; font-size: 1.5rem; margin: 10px 0;">⬇</div>
+                    <div class="flowchart-arrow">⬇</div>
 
-                    <div style="display: flex; justify-content: space-around; margin-bottom: 20px;">
-                        <div style="flex: 1; text-align: center; border-right: 2px dashed #eee;">
-                            <strong style="color: var(--primary-color); font-size: 1.2rem;">YES</strong><br>
-                            <p style="margin-top: 10px;">迷わずこれ！</p>
-                            <div
-                                style="background: #fff0f0; padding: 10px; border-radius: 5px; display: inline-block; border: 2px solid var(--primary-color);">
-                                <span style="font-size: 1.2rem; font-weight: bold;">👉 for 文</span>
+                    <div class="flowchart-branch">
+                        <!-- YES Path -->
+                        <div class="flowchart-option">
+                            <span class="flowchart-label label-yes">YES</span>
+                            <div class="flowchart-arrow">⬇</div>
+                            <div class="flowchart-answer answer-for">
+                                <span class="answer-title">👉 for 文</span>
+                                <span class="answer-desc">迷わずこれ！</span>
                             </div>
                         </div>
 
-                        <div style="flex: 1; text-align: center;">
-                            <strong style="color: var(--secondary-color); font-size: 1.2rem;">NO</strong><br>
-                            <div style="font-size: 1.5rem; margin: 10px 0;">⬇</div>
+                        <!-- NO Path -->
+                        <div class="flowchart-option">
+                            <span class="flowchart-label label-no">NO</span>
+                            <div class="flowchart-arrow">⬇</div>
 
-                            <div
-                                style="background: #e6f7ff; padding: 15px; border-radius: 10px; margin-bottom: 20px; display: inline-block;">
-                                <strong>Q2. 非同期処理 (await) を待機する必要がある？</strong>
+                            <!-- Step 2 -->
+                            <div class="flowchart-step">
+                                Q2. 非同期処理 (await) を待機する必要がある？
                             </div>
 
-                            <div style="display: flex; justify-content: space-around; margin-top: 10px;">
-                                <div style="flex: 1;">
-                                    <strong style="color: var(--primary-color);">YES</strong><br>
-                                    <p style="font-size: 0.9rem;">待つならこっち</p>
-                                    <span style="font-weight: bold;">👉 for 文</span><br>
-                                    <small>(または for...of)</small>
+                            <div class="flowchart-arrow">⬇</div>
+
+                            <div class="flowchart-branch" style="width: 100%; gap: 20px;">
+                                <!-- YES Path -->
+                                <div class="flowchart-option">
+                                    <span class="flowchart-label label-yes">YES</span>
+                                    <div class="flowchart-arrow">⬇</div>
+                                    <div class="flowchart-answer answer-for">
+                                        <span class="answer-title">👉 for 文</span>
+                                        <span class="answer-desc">待つならこっち<br><small>(or for...of)</small></span>
+                                    </div>
                                 </div>
-                                <div style="flex: 1;">
-                                    <strong style="color: var(--secondary-color);">NO</strong><br>
-                                    <p style="font-size: 0.9rem;">シンプル一番！</p>
-                                    <span style="font-weight: bold; font-size: 1.2rem;">👉 forEach</span>
+
+                                <!-- NO Path -->
+                                <div class="flowchart-option">
+                                    <span class="flowchart-label label-no">NO</span>
+                                    <div class="flowchart-arrow">⬇</div>
+                                    <div class="flowchart-answer answer-foreach">
+                                        <span class="answer-title">👉 forEach</span>
+                                        <span class="answer-desc">シンプル一番！</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -219,8 +201,14 @@
                     <div class="quiz-item" id="q1">
                         <p><strong>Q1. 配列の要素を順番に表示したいだけの場合、可読性が高い（読みやすい）のは？</strong></p>
                         <div class="quiz-options">
-                            <label><input type="radio" name="q1" value="for"> for文</label>
-                            <label><input type="radio" name="q1" value="foreach"> forEach</label>
+                            <div class="option-group">
+                                <input type="radio" name="q1" id="q1-for" value="for">
+                                <label for="q1-for" class="option-card">for文</label>
+                            </div>
+                            <div class="option-group">
+                                <input type="radio" name="q1" id="q1-foreach" value="foreach">
+                                <label for="q1-foreach" class="option-card">forEach</label>
+                            </div>
                         </div>
                         <div class="result-message"></div>
                     </div>
@@ -228,8 +216,14 @@
                     <div class="quiz-item" id="q2">
                         <p><strong>Q2. 「目的のデータが見つかったらループを止めたい」場合、使えるのは？</strong></p>
                         <div class="quiz-options">
-                            <label><input type="radio" name="q2" value="for"> for文 (breakが使える)</label>
-                            <label><input type="radio" name="q2" value="foreach"> forEach (breakが使えない)</label>
+                            <div class="option-group">
+                                <input type="radio" name="q2" id="q2-for" value="for">
+                                <label for="q2-for" class="option-card">for文 (break可)</label>
+                            </div>
+                            <div class="option-group">
+                                <input type="radio" name="q2" id="q2-foreach" value="foreach">
+                                <label for="q2-foreach" class="option-card">forEach (break不可)</label>
+                            </div>
                         </div>
                         <div class="result-message"></div>
                     </div>
@@ -237,13 +231,21 @@
                     <div class="quiz-item" id="q3">
                         <p><strong>Q3. forEachの中で `await` (待機) は機能する？</strong></p>
                         <div class="quiz-options">
-                            <label><input type="radio" name="q3" value="yes"> 機能する</label>
-                            <label><input type="radio" name="q3" value="no"> 機能しない（待機せずに進む）</label>
+                            <div class="option-group">
+                                <input type="radio" name="q3" id="q3-yes" value="yes">
+                                <label for="q3-yes" class="option-card">機能する</label>
+                            </div>
+                            <div class="option-group">
+                                <input type="radio" name="q3" id="q3-no" value="no">
+                                <label for="q3-no" class="option-card">機能しない</label>
+                            </div>
                         </div>
                         <div class="result-message"></div>
                     </div>
 
-                    <button id="checkQuiz" class="btn">答え合わせ</button>
+                    <div style="text-align: center; margin-top: 20px;">
+                        <button id="checkQuiz" class="btn btn-large">答え合わせ</button>
+                    </div>
                 </div>
             </section>
 
@@ -251,8 +253,15 @@
                 <a href="index.html" class="btn btn-large">トップに戻って復習する</a>
             </div>
         </main>
+    </div>
 
-
+    <!-- Custom Modal -->
+    <div class="modal-overlay" id="quizModal">
+        <div class="modal-content">
+            <div class="modal-title" id="modalTitle"></div>
+            <div class="modal-message" id="modalMessage"></div>
+            <button class="btn" id="closeModal">閉じる</button>
+        </div>
     </div>
 
     <footer>
@@ -261,6 +270,21 @@
 
     <script src="js/script.js"></script>
     <script>
+        const modal = document.getElementById('quizModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalMessage = document.getElementById('modalMessage');
+        const closeModal = document.getElementById('closeModal');
+
+        // Close modal function
+        const hideModal = () => {
+            modal.classList.remove('active');
+        };
+
+        closeModal.addEventListener('click', hideModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) hideModal();
+        });
+
         document.getElementById('checkQuiz').addEventListener('click', () => {
             // Answers
             const answers = {
@@ -288,11 +312,18 @@
                 }
             }
 
+            // Show Custom Modal instead of alert
             if (correctCount === 3) {
-                alert('全問正解！おめでとうございます！🎉');
+                modalTitle.textContent = '🎉 全問正解！';
+                modalMessage.textContent = '素晴らしい！完璧に理解していますね！';
             } else {
-                alert(`${correctCount}問正解です。もう一度復習してみましょう！`);
+                modalTitle.textContent = '惜しい！';
+                modalMessage.textContent = `${correctCount}問正解です。\nもう一度復習してみましょう！`;
+                // Handle newlines in textContent if needed, or use innerHTML safely
+                modalMessage.innerHTML = `${correctCount}問正解です。<br>もう一度復習してみましょう！`;
             }
+
+            modal.classList.add('active');
         });
     </script>
 </body>
