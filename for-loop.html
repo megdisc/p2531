@@ -125,17 +125,6 @@
                 </div>
             </section>
 
-            <section class="demo">
-                <h2>3. 動作デモ</h2>
-                <p>以下のボタンを押すと、<code>for</code>文を使って配列の中身を表示します。</p>
-                <button id="runForLoop" class="btn">実行する</button>
-
-                <div class="demo-area">
-                    <strong>実行結果:</strong>
-                    <div id="forLoopOutput" class="output-box"></div>
-                </div>
-            </section>
-
             <div style="margin-top: 40px; text-align: right;">
                 <a href="foreach.html" class="btn">次は forEach へ &rarr;</a>
             </div>
@@ -149,22 +138,6 @@
     </footer>
 
     <script src="js/script.js"></script>
-    <script>
-        // Page specific script
-        document.getElementById('runForLoop').addEventListener('click', () => {
-            const outputId = 'forLoopOutput';
-            clearOutput(outputId);
-
-            const fruits = ['Apple', 'Banana', 'Cherry'];
-            logOutput(outputId, '--- ループ開始 ---');
-
-            for (let i = 0; i < fruits.length; i++) {
-                logOutput(outputId, `${i}: ${fruits[i]}`);
-            }
-
-            logOutput(outputId, '--- ループ終了 ---');
-        });
-    </script>
 </body>
 
 </html>

@@ -116,16 +116,6 @@ animals.<span class="function">forEach</span>( (animal, index) => {
                 </div>
             </section>
 
-            <section class="demo">
-                <h2>4. 動作デモ</h2>
-                <p>以下のボタンを押すと、<code>forEach</code> を使って配列の中身を表示します。</p>
-                <button id="runForEach" class="btn">実行する</button>
-                <div class="demo-area">
-                    <strong>実行結果:</strong>
-                    <div id="forEachOutput" class="output-box"></div>
-                </div>
-            </section>
-
             <div style="margin-top: 40px; text-align: right;">
                 <a href="compare.html" class="btn">次は 比較・まとめ へ &rarr;</a>
             </div>
@@ -139,22 +129,6 @@ animals.<span class="function">forEach</span>( (animal, index) => {
     </footer>
 
     <script src="js/script.js"></script>
-    <script>
-        // Page specific script
-        document.getElementById('runForEach').addEventListener('click', () => {
-            const outputId = 'forEachOutput';
-            clearOutput(outputId);
-
-            const animals = ['Dog', 'Cat', 'Bird'];
-            logOutput(outputId, '--- forEach開始 ---');
-
-            animals.forEach((animal, index) => {
-                logOutput(outputId, `${index}: ${animal}`);
-            });
-
-            logOutput(outputId, '--- forEach終了 ---');
-        });
-    </script>
 </body>
 
 </html>

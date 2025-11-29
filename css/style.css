@@ -369,10 +369,7 @@ tr:nth-child(even) {
     background-color: #FFFDF9;
 }
 
-tr:hover {
-    background-color: var(--accent-yellow);
-    /* Highlight with yellow */
-}
+/* Hover effect removed as per user request */
 
 /* Footer */
 footer {
@@ -381,7 +378,7 @@ footer {
     text-align: center;
     padding: 40px;
     margin-top: 60px;
-    border-top: 5px solid var(--accent-purple);
+    border-top: 5px solid var(--theme-color);
 }
 
 footer a {
