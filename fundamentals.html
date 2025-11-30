@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>基礎知識：配列とループ | JSるーぷますたー</title>
+    <title>基礎知識：配列とループ | forとforEachの解説</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -12,7 +12,7 @@
 <body>
     <header>
         <nav>
-            <a href="index.html" class="logo">JSるーぷますたー</a>
+            <a href="index.html" class="logo">forとforEachの解説</a>
             <ul class="nav-links">
                 <li><a href="index.html">Top</a></li>
                 <li><a href="fundamentals.html" class="active">基礎知識</a></li>
@@ -52,10 +52,14 @@
                 </p>
                 <div class="demo-area">
                     <p><strong>やりたいこと：</strong></p>
+                    <p>ループ処理を使うと、以下のように順番に処理が実行されます。</p>
+                    <pre><code>for (let i = 0; i < animals.length; i++) {
+    console.log(animals[i]);
+}</code></pre>
                     <ul style="list-style: none; padding: 0;">
-                        <li>1回目 (インデックス0)：Dog を表示する</li>
-                        <li>2回目 (インデックス1)：Cat を表示する</li>
-                        <li>3回目 (インデックス2)：Rabbit を表示する</li>
+                        <li>1回目：0番目のデータ "Dog" を取り出して表示する</li>
+                        <li>2回目：1番目のデータ "Cat" を取り出して表示する</li>
+                        <li>3回目：2番目のデータ "Rabbit" を取り出して表示する</li>
                     </ul>
                     <div style="margin-top: 20px; display: flex; gap: 10px; justify-content: center;">
                         <span style="border: 1px solid #ddd; padding: 10px; border-radius: 5px;">🐶 Dog</span>
@@ -74,7 +78,7 @@
 
                     <div style="display: flex; gap: 20px; flex-wrap: wrap;">
                         <div
-                            style="flex: 1; min-width: 250px; background: #F5F5F5; padding: 20px; border-radius: 15px;">
+                            style="flex: 1; min-width: 250px; background: #F9F9F9; padding: 20px; border-radius: 15px;">
                             <h3 style="color: var(--theme-color); margin-top: 0;">構文 (Syntax)</h3>
                             <p><strong>言語のルールそのもの</strong>です。<br>
                                 <code>if</code> や <code>for</code> などがこれにあたります。<br>
@@ -83,7 +87,7 @@
                         </div>
 
                         <div
-                            style="flex: 1; min-width: 250px; background: #FAFAFA; padding: 20px; border-radius: 15px;">
+                            style="flex: 1; min-width: 250px; background: #F9F9F9; padding: 20px; border-radius: 15px;">
                             <h3 style="color: var(--theme-color); margin-top: 0;">メソッド (Method)</h3>
                             <p><strong>あらかじめ用意された機能</strong>です。<br>
                                 <code>forEach</code> は配列が持っている機能です。<br>
