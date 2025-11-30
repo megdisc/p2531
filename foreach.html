@@ -15,19 +15,19 @@
             <a href="index.html" class="logo">JSるーぷますたー</a>
             <ul class="nav-links">
                 <li><a href="index.html">Top</a></li>
-                <li><a href="fundamentals.html">基本のキ</a></li>
+                <li><a href="fundamentals.html">基礎知識</a></li>
                 <li><a href="for-loop.html">for文</a></li>
                 <li><a href="foreach.html" class="active">forEach</a></li>
-                <li><a href="compare.html">比較・まとめ</a></li>
+                <li><a href="compare.html">比較とまとめ</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="page-layout">
         <main>
-            <h1>forEach：配列専用の「便利な道具」</h1>
+            <h1>forEach：配列の要素を順に処理する「メソッド」</h1>
             <p><code>forEach</code> は、JavaScriptの文法ではなく、<strong>「配列（Array）が持っている機能（メソッド）」</strong>です。<br>
-                「配列の中身を全部処理したい！」という、よくある作業を簡単にするために作られました。</p>
+                配列のすべての要素に対して、順番に処理を実行します。</p>
 
             <section class="explanation">
                 <h2>1. 構文の仕組み</h2>
@@ -63,15 +63,14 @@
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
                     <h4 style="margin: 0 0 10px 0; color: var(--text-color);">覚えておきたい言葉</h4>
                     <dl style="margin: 0;">
-                        <dt style="font-weight: bold; color: var(--secondary-color);">コールバック関数 (Callback Function)</dt>
-                        <dd style="margin: 0 0 10px 0;">「後で呼び出してもらう」ための関数のこと。<code>forEach</code>
-                            が裏側で「はい、次の要素！」と順番に呼び出してくれます。</dd>
+                        <dt style="font-weight: bold; color: var(--theme-color);">コールバック関数 (Callback Function)</dt>
+                        <dd style="margin: 0 0 10px 0;">他の関数（ここでは <code>forEach</code>）に引数として渡され、その中で実行される関数のことです。</dd>
 
-                        <dt style="font-weight: bold; color: var(--secondary-color);">引数 (Argument)</dt>
+                        <dt style="font-weight: bold; color: var(--theme-color);">引数 (Argument)</dt>
                         <dd style="margin: 0 0 10px 0;">関数に渡すデータのこと。<code>(animal) => ...</code> の <code>animal</code>
                             の部分です。好きな名前を付けられます。</dd>
 
-                        <dt style="font-weight: bold; color: var(--secondary-color);">アロー関数 (Arrow Function)</dt>
+                        <dt style="font-weight: bold; color: var(--theme-color);">アロー関数 (Arrow Function)</dt>
                         <dd style="margin: 0;"><code>() => {}</code> という矢印のような書き方のこと。短くて書きやすいので、<code>forEach</code>
                             と一緒によく使われます。</dd>
                     </dl>
@@ -95,19 +94,19 @@ animals.<span class="function">forEach</span>( (animal, index) => {
             </section>
 
             <section class="caveats">
-                <h2>3. 注意点（バスのルール）</h2>
-                <p>便利な反面、オートマチックならではの制約もあります。</p>
+                <h2>3. 注意点（forEachの特性）</h2>
+                <p>便利な反面、あらかじめ決められた動作しかできません。</p>
                 <div
-                    style="background: #fff0f0; padding: 20px; border-radius: 15px; border: 2px solid var(--secondary-color);">
+                    style="background: #fff0f0; padding: 20px; border-radius: 15px; border: 2px solid var(--theme-color);">
                     <ul>
                         <li style="margin-bottom: 10px;">
-                            <strong>🛑 途中下車できない (No break)</strong><br>
-                            <code>break</code> や <code>continue</code> は使えません。必ず最後まで走り切ります。
+                            <strong>🛑 中断できない (No break)</strong><br>
+                            <code>break</code> や <code>continue</code> は使えません。配列の最後まで必ず処理が実行されます。
                         </li>
                         <li>
-                            <strong>⏳ 待ってくれない (No await)</strong><br>
-                            <code>async/await</code> を使っても、バスは次のバス停へ進んでしまいます。<br>
-                            「処理が終わるのを待つ」ということができません（投げっぱなしになります）。
+                            <strong>⏳ 待機できない (No await)</strong><br>
+                            <code>async/await</code> を使っても、次の処理へ進んでしまいます。<br>
+                            非同期処理の完了を待つことができません。
                         </li>
                     </ul>
                 </div>

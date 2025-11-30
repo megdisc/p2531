@@ -4,51 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>徹底比較・まとめ | JSるーぷますたー</title>
+    <title>比較とまとめ | JSるーぷますたー</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background: white;
-        }
 
-        th,
-        td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-
-        th {
-            background-color: var(--secondary-color);
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        .flowchart-container {
-            background: #fdfdfd;
-            padding: 30px;
-            border-radius: 8px;
-            text-align: center;
-            margin: 20px 0;
-            border: 1px solid #ddd;
-            font-size: 1.1rem;
-        }
-
-        .quiz-container {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 30px;
-            border: 1px solid #ddd;
-        }
-    </style>
 </head>
 
 <body>
@@ -57,17 +16,17 @@
             <a href="index.html" class="logo">JSるーぷますたー</a>
             <ul class="nav-links">
                 <li><a href="index.html">Top</a></li>
-                <li><a href="fundamentals.html">基本のキ</a></li>
+                <li><a href="fundamentals.html">基礎知識</a></li>
                 <li><a href="for-loop.html">for文</a></li>
                 <li><a href="foreach.html">forEach</a></li>
-                <li><a href="compare.html" class="active">比較・まとめ</a></li>
+                <li><a href="compare.html" class="active">比較とまとめ</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="page-layout">
         <main>
-            <h1>徹底比較・まとめ</h1>
+            <h1>比較とまとめ</h1>
 
             <section class="comparison">
                 <h2>1. for vs forEach 比較表</h2>
@@ -165,7 +124,7 @@
 
                             <div class="flowchart-arrow">⬇</div>
 
-                            <div class="flowchart-branch" style="width: 100%; gap: 20px;">
+                            <div class="flowchart-branch">
                                 <!-- YES Path -->
                                 <div class="flowchart-option">
                                     <span class="flowchart-label label-yes">YES</span>
@@ -298,11 +257,11 @@
                 resultDiv.className = 'result-message'; // reset
 
                 if (selected && selected.value === correctAnswer) {
-                    resultDiv.textContent = '正解';
+                    resultDiv.textContent = '正解です。';
                     resultDiv.classList.add('correct');
                     correctCount++;
                 } else {
-                    resultDiv.textContent = '不正解';
+                    resultDiv.textContent = '不正解です。';
                     resultDiv.classList.add('incorrect');
                 }
             }

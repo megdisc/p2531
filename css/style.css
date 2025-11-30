@@ -33,6 +33,9 @@
     /* More rounded for 'cute' look */
     --box-shadow: 0 8px 20px rgba(93, 78, 96, 0.1);
     /* Soft, colored shadow */
+
+    /* Compatibility/Legacy */
+    --secondary-color: var(--theme-color);
 }
 
 * {
