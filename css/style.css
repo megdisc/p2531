@@ -1,37 +1,37 @@
 :root {
-    /* Pop & Cute Pastel Palette */
+    /* Monotone Palette (ASD Accessibility) */
 
     /* Site Theme (Main) */
-    --theme-color: #FF90BC;
-    /* Vibrant Pastel Pink */
-    --theme-bg: #FFF9F0;
-    /* Warm Cream Background */
-    --text-color: #5D4E60;
-    /* Dark Slate (Readable contrast) */
+    --theme-color: #333333;
+    /* Dark Gray */
+    --theme-bg: #FFFFFF;
+    /* White */
+    --text-color: #111111;
+    /* Black */
 
     /* Semantic Colors */
-    --color-for: #FF9EAA;
-    /* Warm Pastel Red/Pink for 'for' */
-    --color-foreach: #8ACDD7;
-    /* Fresh Pastel Blue/Mint for 'forEach' */
+    --color-for: #DDDDDD;
+    /* Light Gray */
+    --color-foreach: #EEEEEE;
+    /* Very Light Gray */
 
     /* Feedback Colors */
-    --color-correct: #B9E4C9;
-    /* Pastel Green */
-    --color-incorrect: #FFC8C8;
-    /* Pastel Red */
+    --color-correct: #E0E0E0;
+    /* Gray */
+    --color-incorrect: #CCCCCC;
+    /* Darker Gray */
 
     /* Accents */
-    --accent-yellow: #FDF7C3;
-    /* Pastel Yellow */
-    --accent-purple: #E2C6FF;
-    /* Pastel Purple */
+    --accent-yellow: #F5F5F5;
+    /* Off White */
+    --accent-purple: #999999;
+    /* Medium Gray */
 
     /* UI Variables */
     --header-height: 70px;
     --border-radius: 20px;
     /* More rounded for 'cute' look */
-    --box-shadow: 0 4px 10px rgba(93, 78, 96, 0.05);
+    --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     /* Soft, colored shadow */
 
     /* Compatibility/Legacy */
@@ -48,8 +48,8 @@ body {
     font-family: 'Zen Maru Gothic', 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.8;
     color: var(--text-color);
-    background-color: #FFFDF9;
-    /* Solid warm cream, no pattern */
+    background-color: #FFFFFF;
+    /* Solid white */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -104,6 +104,7 @@ nav {
     padding: 10px 20px;
     border-radius: 50px;
     font-size: 0.95rem;
+    background-color: #E0E0E0;
 }
 
 .nav-links a:hover,
@@ -243,20 +244,20 @@ code {
     border: none;
     cursor: pointer;
     font-size: 1.1rem;
-    box-shadow: 0 5px 0px #E57FA5;
+    box-shadow: 0 5px 0px #222;
     letter-spacing: 1px;
 }
 
 .btn:hover {
-    background-color: #FFA3C9;
+    background-color: #555;
     /* Removed transform */
-    box-shadow: 0 5px 0px #E57FA5;
+    box-shadow: 0 5px 0px #222;
     /* Keep shadow static */
 }
 
 .btn:active {
     /* Removed transform */
-    box-shadow: 0 2px 0px #E57FA5;
+    box-shadow: 0 2px 0px #222;
     position: relative;
     top: 3px;
     /* Simple press effect */
@@ -504,14 +505,14 @@ footer a {
 
 .answer-for {
     border-color: var(--color-for);
-    color: var(--color-for);
-    background: #FFF0F5;
+    color: #333;
+    background: #F5F5F5;
 }
 
 .answer-foreach {
     border-color: var(--color-foreach);
-    color: var(--color-foreach);
-    background: #F0FFFF;
+    color: #333;
+    background: #FAFAFA;
 }
 
 .answer-title {
@@ -591,7 +592,7 @@ footer a {
 }
 
 .option-card:hover {
-    background: #FFF0F5;
+    background: #F5F5F5;
     border-color: var(--theme-color);
     color: var(--theme-color);
     transform: translateY(-3px);
@@ -602,7 +603,7 @@ footer a {
     background: var(--theme-color);
     border-color: var(--theme-color);
     color: white;
-    box-shadow: 0 5px 15px rgba(255, 144, 188, 0.4);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     transform: translateY(-3px) scale(1.02);
 }
 
