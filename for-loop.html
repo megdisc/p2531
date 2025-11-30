@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>for文の解説 | JSるーぷますたー</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -31,43 +31,36 @@
             </p>
 
             <section class="explanation">
-                <h2>1. 構文の仕組み（マニュアル操作）</h2>
-                <p><code>for</code>文は、3つのステップを自分で書くことで、ループの挙動を完全にコントロールします。<br>
-                    少し記述が長いですが、一つ一つの意味を理解すれば怖くありません。</p>
+                <h2>1. 構文の仕組み</h2>
+                <p><code>for</code>文は、3つの要素を指定してループを制御します。</p>
 
                 <pre><code><span class="keyword">for</span> (初期化; 条件式; 更新式) {
-    <span class="comment">// 繰り返したい処理 (ブロック)</span>
+    <span class="comment">// 繰り返したい処理</span>
 }</code></pre>
 
                 <div
-                    style="background: white; padding: 20px; border-radius: 15px; border: 2px solid var(--primary-color); margin-bottom: 20px;">
-                    <h3 style="color: var(--primary-color); margin-top: 0; border: none; font-size: 1.1rem;">🚶
-                        自分の足で歩くイメージ</h3>
-                    <p><code>for</code>文は、ゴールに向かって一歩ずつ歩くことに似ています。</p>
+                    style="background: white; padding: 20px; border-radius: 15px; border: 2px solid var(--theme-color); margin-bottom: 20px;">
+                    <h3 style="color: var(--theme-color); margin-top: 0; border: none; font-size: 1.1rem;">
+                        3つの構成要素</h3>
 
                     <dl style="margin: 0;">
-                        <dt style="font-weight: bold; color: var(--primary-color); margin-top: 15px;">① 初期化
+                        <dt style="font-weight: bold; color: var(--theme-color); margin-top: 15px;">① 初期化
                             (Initialization)</dt>
                         <dd style="margin: 5px 0 10px 15px; border-left: 3px solid #eee; padding-left: 10px;">
-                            <strong>「スタート地点に立つ」</strong><br>
-                            最初に1回だけ実行されます。ここで「カウンター変数（歩数計）」を作ります。<br>
-                            例: <code>let i = 0;</code> （変数 <code>i</code> を作って 0 を入れる）
+                            ループ開始時に1回だけ実行されます。カウンター変数（例: <code>let i = 0;</code>）を定義します。
                         </dd>
 
-                        <dt style="font-weight: bold; color: var(--primary-color); margin-top: 15px;">② 条件式 (Condition)
+                        <dt style="font-weight: bold; color: var(--theme-color); margin-top: 15px;">② 条件式 (Condition)
                         </dt>
                         <dd style="margin: 5px 0 10px 15px; border-left: 3px solid #eee; padding-left: 10px;">
-                            <strong>「まだゴールじゃないか確認する」</strong><br>
-                            毎回、進む前にチェックします。これが <code>true</code> (正解) の間だけループが続きます。<br>
-                            例: <code>i < 3;</code> （<code>i</code> が 3 より小さいなら進む）
+                            各ループの開始前に評価されます。この条件が <code>true</code> の場合のみ、ブロック内の処理が実行されます。<br>
+                            例: <code>i < 3;</code>
                         </dd>
 
-                        <dt style="font-weight: bold; color: var(--primary-color); margin-top: 15px;">③ 更新式 (Update)
-                        </dt>
+                        <dt style="font-weight: bold; color: var(--theme-color); margin-top: 15px;">③ 更新式 (Update)</dt>
                         <dd style="margin: 5px 0 10px 15px; border-left: 3px solid #eee; padding-left: 10px;">
-                            <strong>「一歩進む」</strong><br>
-                            1回の処理が終わるたびに実行されます。カウンター変数を増やしたり減らしたりします。<br>
-                            例: <code>i++</code> （<code>i</code> を 1 増やす）
+                            各ループの終了後に実行されます。カウンター変数を更新します。<br>
+                            例: <code>i++</code>
                         </dd>
                     </dl>
                 </div>
@@ -95,32 +88,32 @@
             </section>
 
             <section class="features">
-                <h2>2. for文にしかできないこと（メリット）</h2>
-                <p>「面倒くさい」と思うかもしれませんが、すべて自分で決められるからこそ、自由自在です。<br>
-                    特に、以下の機能は <code>forEach</code> には存在しない、<code>for</code>文だけの特権です。</p>
+                <h2>2. for文の機能（メリット）</h2>
+                <p><code>for</code>文は、ループの挙動を細かく制御できるため、以下の機能が利用できます。<br>
+                    これらは <code>forEach</code> では利用できない機能です。</p>
 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                     <div style="background: #fff9f0; padding: 15px; border-radius: 10px; border: 1px solid #eee;">
                         <h3 style="font-size: 1rem; margin: 0 0 10px 0; color: var(--text-color);">🛑 中断 (break)</h3>
-                        <p style="font-size: 0.9rem; margin: 0;">「目的のものが見つかった！」という時に、ループを途中で強制終了できます。</p>
+                        <p style="font-size: 0.9rem; margin: 0;">条件を満たした時点で、ループを終了できます。</p>
                     </div>
 
                     <div style="background: #fff9f0; padding: 15px; border-radius: 10px; border: 1px solid #eee;">
                         <h3 style="font-size: 1rem; margin: 0 0 10px 0; color: var(--text-color);">⏭️ スキップ (continue)
                         </h3>
-                        <p style="font-size: 0.9rem; margin: 0;">「これは関係ないな」という時に、その回だけ飛ばして次へ進めます。</p>
+                        <p style="font-size: 0.9rem; margin: 0;">特定の条件の時だけ処理を行わず、次のループへ進むことができます。</p>
                     </div>
 
                     <div style="background: #fff9f0; padding: 15px; border-radius: 10px; border: 1px solid #eee;">
                         <h3 style="font-size: 1rem; margin: 0 0 10px 0; color: var(--text-color);">⏳ 待機 (await)</h3>
                         <p style="font-size: 0.9rem; margin: 0;"><code>async/await</code>
-                            を使って、通信などの処理が終わるのを「待ってから」次へ進めます。</p>
+                            を使用して、非同期処理の完了を待機してから次のループへ進むことができます。</p>
                     </div>
 
                     <div style="background: #fff9f0; padding: 15px; border-radius: 10px; border: 1px solid #eee;">
                         <h3 style="font-size: 1rem; margin: 0 0 10px 0; color: var(--text-color);">🔄 柔軟な制御</h3>
-                        <p style="font-size: 0.9rem; margin: 0;">後ろから数えたり (<code>i--</code>)、2つ飛ばしにしたり
-                            (<code>i+=2</code>)、自由自在です。</p>
+                        <p style="font-size: 0.9rem; margin: 0;">逆順でのループ (<code>i--</code>) や、2つ飛ばし (<code>i+=2</code>)
+                            など、カウンター変数を自由に操作できます。</p>
                     </div>
                 </div>
             </section>

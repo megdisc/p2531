@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>forEachの解説 | JSるーぷますたー</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -30,35 +30,32 @@
                 「配列の中身を全部処理したい！」という、よくある作業を簡単にするために作られました。</p>
 
             <section class="explanation">
-                <h2>1. 構文の仕組み（オートマチック）</h2>
-                <p><code>for</code>文のように、スタート地点やゴール地点を指定する必要はありません。<br>
-                    「これやって！」という関数（<strong>コールバック関数</strong>）を渡すだけで、あとは全自動です。</p>
+                <h2>1. 構文の仕組み</h2>
+                <p><code>forEach</code> は、配列の各要素に対して、指定した関数（コールバック関数）を一度ずつ実行します。</p>
 
-                <pre><code>配列.<span class="function">forEach</span>( (中身, インデックス) => {
-    <span class="comment">// やりたい処理</span>
+                <pre><code>配列.<span class="function">forEach</span>( (要素, インデックス) => {
+    <span class="comment">// 実行したい処理</span>
 });</code></pre>
 
                 <div
-                    style="background: white; padding: 20px; border-radius: 15px; border: 2px solid var(--primary-color); margin-bottom: 20px;">
-                    <h3 style="color: var(--primary-color); margin-top: 0; border: none; font-size: 1.1rem;">🚌
-                        バスに乗るイメージ</h3>
-                    <p>バス（forEach）に乗れば、運転手さんが決まったルート（配列の最初から最後まで）を自動で走ってくれます。<br>
-                        あなたは「各バス停（要素）で何をするか」だけを考えればOKです。</p>
+                    style="background: white; padding: 20px; border-radius: 15px; border: 2px solid var(--theme-color); margin-bottom: 20px;">
+                    <h3 style="color: var(--theme-color); margin-top: 0; border: none; font-size: 1.1rem;">
+                        仕組み</h3>
+                    <p><code>forEach</code> メソッドは、配列の先頭から順番に要素を取り出し、関数に渡して実行します。</p>
 
                     <dl style="margin: 0;">
-                        <dt style="font-weight: bold; color: var(--primary-color); margin-top: 15px;">① コールバック関数
+                        <dt style="font-weight: bold; color: var(--theme-color); margin-top: 15px;">① コールバック関数
                             (Callback)</dt>
                         <dd style="margin: 5px 0 10px 15px; border-left: 3px solid #eee; padding-left: 10px;">
-                            <strong>「バス停に着いたらやることリスト」</strong><br>
-                            <code>forEach</code> に渡す関数のことです。「各要素に対して、この処理を実行してね」とお願いします。
+                            <code>forEach</code> に渡す関数のことです。この関数の中に、繰り返したい処理を記述します。
                         </dd>
 
-                        <dt style="font-weight: bold; color: var(--primary-color); margin-top: 15px;">② 引数 (Arguments)
+                        <dt style="font-weight: bold; color: var(--theme-color); margin-top: 15px;">② 引数 (Arguments)
                         </dt>
                         <dd style="margin: 5px 0 10px 15px; border-left: 3px solid #eee; padding-left: 10px;">
-                            <strong>「運転手さんから渡される情報」</strong><br>
-                            関数の中に自動的に入ってくるデータです。<br>
-                            1つ目に「要素の中身」、2つ目に「インデックス（番号）」が渡されます。
+                            コールバック関数は、以下の引数を受け取ります。<br>
+                            1つ目: 現在処理している<strong>要素</strong><br>
+                            2つ目: その要素の<strong>インデックス</strong>（番号）
                         </dd>
                     </dl>
                 </div>

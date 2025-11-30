@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>徹底比較・まとめ | JSるーぷますたー</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
     <style>
         table {
             width: 100%;
@@ -84,49 +84,47 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>正体</strong></td>
+                            <td><strong>分類</strong></td>
                             <td>
-                                <strong>言語の基本ルール</strong><br>
-                                <small style="color: #666;">(マニュアル操作)</small><br>
-                                文法として最初からある機能。
+                                <strong>構文</strong><br>
+                                言語の基本機能。
                             </td>
                             <td>
-                                <strong>配列の便利ツール</strong><br>
-                                <small style="color: #666;">(オートマチック)</small><br>
-                                配列オブジェクトが持っている機能。
+                                <strong>メソッド</strong><br>
+                                配列の機能。
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>記述量</strong></td>
+                            <td><strong>記述</strong></td>
                             <td>
-                                <strong>多い</strong><br>
-                                初期化・条件・更新を全部自分で書くため、長くなりがち。
+                                <strong>詳細な指定が必要</strong><br>
+                                初期化・条件・更新を記述する。
                             </td>
                             <td>
-                                <strong>少ない</strong><br>
-                                「やりたいこと」だけを書けばいいので、スッキリ読める。
+                                <strong>簡潔</strong><br>
+                                コールバック関数を渡すのみ。
                             </td>
                         </tr>
                         <tr>
                             <td><strong>中断<br>(break)</strong></td>
                             <td>
                                 <span style="color: green; font-weight: bold;">可能</span><br>
-                                <code>break</code> でいつでもループを強制終了できる。
+                                <code>break</code> で終了できる。
                             </td>
                             <td>
                                 <span style="color: red; font-weight: bold;">不可</span><br>
-                                途中で止まることはできません。必ず最後まで走り切ります。
+                                最後まで実行される。
                             </td>
                         </tr>
                         <tr>
                             <td><strong>非同期<br>(await)</strong></td>
                             <td>
-                                <strong>待機できる</strong><br>
-                                <code>await</code> を使って、1回ずつ処理の完了を待てる。
+                                <strong>待機可能</strong><br>
+                                <code>await</code> で処理を待てる。
                             </td>
                             <td>
-                                <strong>待機できない</strong><br>
-                                待たずに次の処理へ進んでしまう（並列実行のようになる）。
+                                <strong>待機不可</strong><br>
+                                待たずに次へ進む。
                             </td>
                         </tr>
                     </tbody>
@@ -135,7 +133,7 @@
 
             <section class="flowchart">
                 <h2>2. 使い分けフローチャート</h2>
-                <p>迷ったときは、このチャートをたどってみましょう。</p>
+                <p>条件に合わせて選択してください。</p>
 
                 <div class="flowchart-container">
                     <!-- Step 1 -->
@@ -152,7 +150,6 @@
                             <div class="flowchart-arrow">⬇</div>
                             <div class="flowchart-answer answer-for">
                                 <span class="answer-title">👉 for 文</span>
-                                <span class="answer-desc">迷わずこれ！</span>
                             </div>
                         </div>
 
@@ -175,7 +172,6 @@
                                     <div class="flowchart-arrow">⬇</div>
                                     <div class="flowchart-answer answer-for">
                                         <span class="answer-title">👉 for 文</span>
-                                        <span class="answer-desc">待つならこっち</span>
                                     </div>
                                 </div>
 
@@ -185,7 +181,6 @@
                                     <div class="flowchart-arrow">⬇</div>
                                     <div class="flowchart-answer answer-foreach">
                                         <span class="answer-title">👉 forEach</span>
-                                        <span class="answer-desc">シンプル一番！</span>
                                     </div>
                                 </div>
                             </div>
@@ -195,11 +190,11 @@
             </section>
 
             <section class="quiz">
-                <h2>3. 最終確認クイズ</h2>
-                <p>最後に、理解度をチェックしてみましょう！</p>
+                <h2>3. 確認クイズ</h2>
+                <p>理解度を確認してください。</p>
                 <div class="quiz-container">
                     <div class="quiz-item" id="q1">
-                        <p><strong>Q1. 配列の要素を順番に表示したいだけの場合、可読性が高い（読みやすい）のは？</strong></p>
+                        <p><strong>Q1. 配列の要素を順番に表示する場合、記述が簡潔なのは？</strong></p>
                         <div class="quiz-options">
                             <div class="option-group">
                                 <input type="radio" name="q1" id="q1-for" value="for">
@@ -214,7 +209,7 @@
                     </div>
 
                     <div class="quiz-item" id="q2">
-                        <p><strong>Q2. 「目的のデータが見つかったらループを止めたい」場合、使えるのは？</strong></p>
+                        <p><strong>Q2. ループを途中で中断したい場合、使用できるのは？</strong></p>
                         <div class="quiz-options">
                             <div class="option-group">
                                 <input type="radio" name="q2" id="q2-for" value="for">
@@ -229,7 +224,7 @@
                     </div>
 
                     <div class="quiz-item" id="q3">
-                        <p><strong>Q3. forEachの中で `await` (待機) は機能する？</strong></p>
+                        <p><strong>Q3. forEachの中で `await` は機能しますか？</strong></p>
                         <div class="quiz-options">
                             <div class="option-group">
                                 <input type="radio" name="q3" id="q3-yes" value="yes">
@@ -250,7 +245,7 @@
             </section>
 
             <div style="margin-top: 40px; text-align: center;">
-                <a href="index.html" class="btn btn-large">トップに戻って復習する</a>
+                <a href="index.html" class="btn btn-large">トップに戻る</a>
             </div>
         </main>
     </div>
@@ -269,23 +264,15 @@
     </footer>
 
     <script src="js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script>
         const modal = document.getElementById('quizModal');
         const modalTitle = document.getElementById('modalTitle');
         const modalMessage = document.getElementById('modalMessage');
         const closeModal = document.getElementById('closeModal');
 
-        let confettiInterval; // To control the loop
-
         // Close modal function
         const hideModal = () => {
             modal.classList.remove('active');
-            if (confettiInterval) {
-                clearInterval(confettiInterval);
-                confettiInterval = null;
-                confetti.reset(); // Stop any active confetti
-            }
         };
 
         closeModal.addEventListener('click', hideModal);
@@ -311,73 +298,23 @@
                 resultDiv.className = 'result-message'; // reset
 
                 if (selected && selected.value === correctAnswer) {
-                    resultDiv.textContent = '正解！';
+                    resultDiv.textContent = '正解';
                     resultDiv.classList.add('correct');
                     correctCount++;
                 } else {
-                    resultDiv.textContent = '不正解...';
+                    resultDiv.textContent = '不正解';
                     resultDiv.classList.add('incorrect');
                 }
             }
 
             // Show Custom Modal instead of alert
             if (correctCount === 3) {
-                modalTitle.textContent = '🎉 全問正解！';
-                modalMessage.textContent = '素晴らしい！完璧に理解していますね！';
-
-                // Endless Gorgeous Confetti
-                const duration = 15 * 1000; // Keep running for a long time if not closed, but interval controls it
-                const animationEnd = Date.now() + duration;
-                const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 2000 };
-
-                const random = (min, max) => Math.random() * (max - min) + min;
-
-                // Clear any existing interval just in case
-                if (confettiInterval) clearInterval(confettiInterval);
-
-                confettiInterval = setInterval(function () {
-                    // Randomly fire different effects
-                    const particleCount = 50;
-
-                    // 1. Random bursts from random locations (Fireworks style)
-                    confetti(Object.assign({}, defaults, {
-                        particleCount: 30,
-                        origin: { x: random(0.1, 0.9), y: Math.random() - 0.2 },
-                        colors: [
-                            '#FF90BC', // Pink (Theme)
-                            '#8ACDD7', // Mint (Theme)
-                            '#FDF7C3', // Yellow (Theme)
-                            '#E2C6FF', // Purple (Theme)
-                            '#FFC8A2', // Pastel Orange
-                            '#B9E4C9', // Pastel Green
-                            '#A0E7E5', // Pastel Blue
-                            '#FFD700'  // Gold (Accent)
-                        ]
-                    }));
-
-                    // 2. Side Cannons (Streamer style)
-                    confetti({
-                        particleCount: 10,
-                        angle: 60,
-                        spread: 55,
-                        origin: { x: 0 },
-                        colors: ['#FF90BC', '#8ACDD7', '#FFC8A2']
-                    });
-                    confetti({
-                        particleCount: 10,
-                        angle: 120,
-                        spread: 55,
-                        origin: { x: 1 },
-                        colors: ['#FDF7C3', '#E2C6FF', '#B9E4C9']
-                    });
-
-                }, 800); // Fire every 800ms for a continuous stream
-
+                modalTitle.textContent = '全問正解';
+                modalMessage.textContent = 'すべての問題に正解しました。';
             } else {
-                modalTitle.textContent = '惜しい！';
-                modalMessage.textContent = `${correctCount}問正解です。\nもう一度復習してみましょう！`;
-                // Handle newlines in textContent if needed, or use innerHTML safely
-                modalMessage.innerHTML = `${correctCount}問正解です。<br>もう一度復習してみましょう！`;
+                modalTitle.textContent = '結果';
+                modalMessage.textContent = `${correctCount}問正解です。`;
+                modalMessage.innerHTML = `${correctCount}問正解です。`;
             }
 
             modal.classList.add('active');
